@@ -3,17 +3,26 @@ import UserModel from "../Models/UserModel.js"
 
 
 var Signupcontroller=async (req, res, next)=>{
-var {firstnam,lastnam,phon,emai,passwor,confirmpassword}=req.body
-var user_details={firstname:firstnam,lastname:lastnam,phone:phon,email:emai,passwordhash:passwor}
+const {firstname,lastname,phone,email,password,confirmpassword}=req.body
+var user_details={firstname:firstname,lastname:lastname,phone:phone,email:email,passwordhash:password}
 
-var user = await UserModel.create({ firstname: firstnam, lastname: lastnam, email: emai, phone: phon, passwordhash: passwor})
+var user = new UserModel(user_details)
 
-
-await user.save()
-
+const users = await UserModel.find({ email: email });
 
 
-res.send('signup')
+var arr=[]
+arr =users
+if (!arr.length==0){
+
+res.send({response:"User with email already exists, login instead",iserror:true})
+}
+else{
+    var us=await user.save()
+    res.send({response:"Account created",iserror:false})
+}
+
+
 
 
 

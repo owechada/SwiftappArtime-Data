@@ -2,6 +2,7 @@ import Alert from 'react-bootstrap/Alert';
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import Dashboard from './Dashboard';
 
 
 
@@ -14,7 +15,7 @@ function Signup() {
 
     var [errormsg, seterrormsg] = useState([])
     var [errorisvisible, setalertvisi] = useState(false)
-
+ var [suscess, setSucces]=useState(true)
 
     function validateSignup() {
 
@@ -27,7 +28,7 @@ function Signup() {
 
         if (firstname == '' || phone=='' || lastname == '' || email == '' || password == '' || confirmpassword == '') {
 setalertvisi(true)
-
+setSucces(true)
 
            
            
@@ -56,12 +57,19 @@ setalertvisi(false)
 if(!(password==confirmpassword)){
     seterrormsg(["Passwords don't match"])
     setalertvisi(true)
+    
 
 }
 
 else{
 
-    Registeruser(data)
+   var mesg= Registeruser(data,setSucces,setalertvisi) 
+    
+    mesg.then((res)=>{
+
+seterrormsg([res])
+    })
+   
 }
 
 
@@ -78,6 +86,8 @@ else{
 
         })}</Alert> : ''}
 
+{!suscess ?<Alert className='alert-error' variant='success'>Account created successfuly</Alert>:""}
+
         <input onChange={(e) => {
             data.firstname = e.target.value
             setdata(data)
@@ -90,7 +100,7 @@ else{
             data.lastname = e.target.value
             setdata(data)
 
-        }} name='lastname' placeholder='Last name' type='password' />
+        }} name='lastname' placeholder='Last name' type='text' />
 
 <input onChange={(e) => {
             data.phone = e.target.value
@@ -179,14 +189,15 @@ export default function HomePage() {
 
 
 
-    return (<div><Login />
+    return (<div>
+        <Dashboard />
+        <Login />
         <Signup />
-
 
     </div>)
 }
 
-async function Registeruser(data) {
+async function Registeruser(data,suscalback,errorcalback) {
     const url = 'http://localhost:4000/signup';
   
     try {
@@ -198,15 +209,20 @@ async function Registeruser(data) {
         body: JSON.stringify(data),
       });
   
-      if (!response.ok) {
+      if (!(response.status==200 || response.status==400)) {
         // If the response status is not in the range 200-299, it's an error
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
   
       // Assuming you want to work with the response data
       const responseData = await response.json();
+       
+      suscalback(responseData.iserror)
+      errorcalback(responseData.iserror)
+      return responseData.response
+
       console.log('Response Data:', responseData);
-  
+    
       // You can return the response data or perform other actions here
       return responseData;
     } catch (error) {

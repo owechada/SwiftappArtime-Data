@@ -5,10 +5,14 @@ import cors from 'cors'
 
 import  HomePageRoute from './Routes/HomePageRoute.js'
   import SignupRoute from './Routes/SignupRoute.js'
+import UserModel from './Models/UserModel.js'
 var app= express()
-mongoose.connect(process.env.MONGO_CONNECTION_STRING).then((res)=>{
+mongoose.connect(process.env.MONGO_CONNECTION_STRING).then(async (res)=>{
 
-    console.log("Connected to the database")
+  console.log("Connected to the database")
+
+
+
 }).catch(console.error)
 
 

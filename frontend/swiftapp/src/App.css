@@ -3,13 +3,13 @@
 *{
 
   padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  margin: 0 ;
+  box-sizing: border-box !important;
 }
 
 
 html {
-  font-size: 20px; /* Change this value as needed */
+  font-size: 10px; /* Change this value as needed */
 }
 #root{
 
@@ -17,7 +17,9 @@ html {
 display: flex;
 flex-direction: column;
 background-size: contain;
+
 height: auto;
+
 
 justify-content: center;
 align-items: center;
@@ -103,3 +105,35 @@ font-size: 1.3rem;
 width: 100%;
 
 }
+
+.header{
+  background-color: #fff;
+  height: 10%;
+  display:  flex;
+  flex-direction: row;
+  font-size: 2.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header div {
+color: #0099a7;
+ 
+padding: 10px;
+}
+
+.header div:hover{
+
+  background-color: #cacaca;
+}
+.dashbaord-section{
+ background-color: rgb(255, 255, 255);
+ padding: 10px;
+ height: 30vh;
+
+}
+.dashbaord-section{
+
+  
+}
+
