@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "gradio": "^0.1.0",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0",
+    "mongose": "^0.0.2-security"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@gradio/client": "^0.7.1",
+    "nodemon": "^3.0.1"
+  }
+}

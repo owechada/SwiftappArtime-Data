@@ -1,0 +1,105 @@
+
+
+*{
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 20px; /* Change this value as needed */
+}
+#root{
+
+  background-image: url('./public/images/app-bg-home.png');
+display: flex;
+flex-direction: column;
+background-size: contain;
+height: auto;
+
+justify-content: center;
+align-items: center;
+}
+
+.login-container{
+padding: 15px;
+display: flex;
+font-family: Poppins;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+border-radius: 10px;
+height: auto;
+ box-sizing: border-box;
+ margin-top: 20px;
+width: 100% !important;
+max-width: 700px !important;
+font-size: 2rem;
+ 
+background-color:#fff;
+padding: 50px !important;
+}
+
+
+.login-container label{
+ margin-top: 10px;
+ font-size: 1.6rem;
+ color: #747474;
+ 
+font-weight: 300;
+}
+a{color: #004ffaab!important;}
+
+.login-container h1{
+
+align-self: center;
+color: #000000ab;
+font-weight: 600;
+}
+
+.login-container input{
+
+  width: 100%;
+ margin: 10px 3px;
+  border-radius: 6px;
+  border: 3px solid #000;
+  outline: none;
+  font-weight: 400;
+  
+  font-size: 1.5rem;
+  padding: 17px 8px;
+ 
+}
+
+.login-btn{
+margin: 30px 70px;
+  align-self: center;
+  font-family: Lato;
+  background-color:#000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: Poppins;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: aliceblue;
+
+}
+
+.login-help{
+  width: 100%;
+  margin-top: 2px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+  font-size: 1.5rem;
+}
+
+.alert-error{
+font-size: 1.3rem;
+width: 100%;
+
+}
