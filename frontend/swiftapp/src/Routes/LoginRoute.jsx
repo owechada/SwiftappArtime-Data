@@ -6,9 +6,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import getCookie from "../utils/getcookie";
 
 function Loginbtn(props) {
-    return (<>
+    return (<div className="logbtn">
         <button onClick={props.onclick} className='login-btn'>Login</button>
-    </>)
+    </div>)
 }
 
 
@@ -134,7 +134,7 @@ useEffect(()=>{
             setdata(data)
 
         }} name='password' placeholder='Password' type='password' />
-        <Loginbtn onclick={validateLogin} />
+        <Loginbtn  onclick={validateLogin} />
         <div className='login-help'>
 
             <p><Link to="/fotgot-pass">Forgot password</Link></p>

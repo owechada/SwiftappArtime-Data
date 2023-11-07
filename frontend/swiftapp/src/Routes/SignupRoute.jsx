@@ -6,9 +6,9 @@ import Container from 'react-bootstrap/Container'
 import {Link} from 'react-router-dom'
 
 function Signupbtn(props) {
-    return (<>
+    return (<div className="logbtn">
         <button onClick={props.onclick} className='login-btn'>Sign up</button>
-    </>)
+    </div>)
 }
 
 

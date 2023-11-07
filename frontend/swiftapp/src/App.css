@@ -1,15 +1,43 @@
 
 :root {
-  --blue-black:rgba(1, 23, 119, 0.753);
+  --blue-black:#0D6EFDc0;
+  --border-width:rgba(0, 0, 0, 0)676;
   --light-box-shadow: 0 2px 4px rgba(114, 114, 114, 0.767); /* Change these values as needed */
 }
-*{
 
+
+
+
+/* For Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Change the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-width); /* Change the color of the scrollbar thumb (the draggable part) */
+  border-radius: 6px; /* Round the corners of the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-width); /* Change the color of the thumb when hovering */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--border-width); /* Change the color of the scrollbar track (the background) */
+  border-radius: 6px; /* Round the corners of the track */
+}
+
+
+*{
+outline: 0 ;
   padding: 0;
   margin: 0 ;
+  border: none;
 font-family: Poppins;
   box-sizing: border-box !important;
 }
+
+
 
 
 html {
@@ -22,13 +50,28 @@ html {
 
 .main{
   display: flex;
+  overflow: hidden;
   flex-direction: column;
- background-image: url('./public/images/app-bg-home.png');
+ background-image: url('./public/images/app-bg-home.png') ;
  background-size: contain;
  height: auto !important;
  min-height: 100vh;
+ position: relative;
+
+ position: relative;
  
   
+}
+
+main :before{
+  content: '';
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255) !important; 
+
 }
 
 
@@ -39,6 +82,8 @@ html {
   height: 100% !important;
   
 }
+
+
 .login-container{
 
 padding: 15px;
@@ -78,12 +123,15 @@ color: #000000ab;
 font-weight: 600;
 }
 
+h1{
+  color: #10141F !important;
+}
 .login-container input{
 
   width: 100%;
  margin: 10px 3px;
   border-radius: 6px;
-  border: 3px solid #000;
+  border: 2px solid #000;
   outline: none;
   font-weight: 400;
   
@@ -92,17 +140,29 @@ font-weight: 600;
  
 }
 
-.login-btn{
+ .login-btn{
 margin: 30px 70px;
   align-self: center;
   font-family: Lato;
-  background-color:#000;
+  background-color:var(--blue-black);
   border-radius: 5px;
   padding: 10px 20px;
   font-family: Poppins;
   font-size: 1.6rem;
   font-weight: 600;
   color: aliceblue;
+
+}
+
+.logbtn{
+
+  align-self: center;
+  
+  font-size: 1.6rem;
+}
+.logbtn :active{
+  background-color:#000 !important;
+
 
 }
 
@@ -128,27 +188,26 @@ width: 100%;
   height: 10%;
   display:  flex;
   flex-direction: row;
-  font-size: 2.8rem;
+  font-size: 2.8rem !important;
   align-items: center;
   justify-content: space-between;
+  box-shadow: var(--light-box-shadow);
 }
 
 .header div {
 color: var(--blue-black);
  
-padding: 10px;
+padding: 5px;
 }
 
-.header div:hover{
 
-  background-color: #cacaca;
-}
 .dashbaord-section{
   font-family: poppins !important;
  background-color: rgb(255, 255, 255);
  padding: 10px;
  height: auto;
  width: 100vw;
+ box-shadow: var(--light-box-shadow);
 
  
 
@@ -157,8 +216,8 @@ padding: 10px;
   display: flex;
   padding: 10px;
   flex-direction: column;
-border: 2px solid var(--blue-black);
-border-radius: 5px;
+border: 1px solid var(--blue-black);
+border-radius: 15px;
 height: auto;
 
 }
@@ -173,7 +232,7 @@ height: auto;
 
 font-size: 2.4rem;
 font-weight: 600;
-color:#000;
+color: #10141F !important;
 font-family: poppins;
 
 
@@ -184,13 +243,13 @@ align-self: center;
   display: flex;
 padding: 30px 1px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around !important; 
   align-items: center;
 }
 .dash-action-buttons button{
 
   padding: 10px 15px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 3px 5px;
   font-weight: bold;
   border-radius: 7px;
@@ -202,11 +261,14 @@ padding: 30px 1px;
 }
 
 .dash-lower{
+
+
 display: flex;
 justify-content: center;
+
   height: auto;
   margin-top: 10px;
-  background-color: #000;
+  background-color: #ffffff;
   flex-direction: column;
 }
 
@@ -234,14 +296,26 @@ font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
+
 padding: 50px;
 background-color: #fff;
 margin-top: 20px;
-
- flex-direction: row;
+padding: 15px;
+ flex-direction: column;
   color: #0f0f0f;
 }
 
+
+.soon-card img{
+
+height: 25vh;
+width: 100vw;
+max-width: 500px;
+border-radius: 25px;
+box-shadow: var(--light-box-shadow);
+margin:50px  5px !important;
+
+}
 .buy-data-section{
 background-color: #fff;
 display: flex;
@@ -251,6 +325,7 @@ margin-top: 50px;
   height:auto !important;
   padding: 30px;
  padding-top: 40px;
+ overflow: scroll;
 }
 
 .buy-data-section input{
@@ -275,6 +350,7 @@ font-weight: 400;
 }
 .buy-data-section h1{
 font-weight: bold;
+color: #10141F;
 font-family: Poppins;
 
   
@@ -352,25 +428,37 @@ background-repeat: no-repeat;
   align-self: flex-start;
 }
 
+
+.item-menu{
+overflow: scroll !important;
+}
+
 .gen-btn{
-  margin: 30px 70px;
+  margin: 10px;
     align-self: center;
     font-family: Lato;
     background-color:var(--blue-black);
     border-radius: 5px;
     padding: 8px 20px;
     font-family: Poppins;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: rgb(255, 255, 255);
   }
   .gen-btn:active , #dropdown-basic :hover{
 
-    background-color:#000;
+    background-color:#000 !important;
   }
   #dropdown-basic{
-font-size: 1.5rem;
+font-size: 1.8rem !important;
+outline: none !important;
+border: none;
     background-color:var(--blue-black);
+  }
+
+  #dropdown-basic:active{ 
+background-color: rgb(0, 0, 0) !important;
+
   }
 
  .dditem{
@@ -383,3 +471,14 @@ font-size: 1.5rem;
 
     margin-top: 10px;
   }
+
+  .dash-shadow{
+
+padding: 20px !important;
+box-shadow: var(--light-box-shadow);
+   }
+
+   .dropdown-toggle::after {
+
+    display: none !important;
+   }

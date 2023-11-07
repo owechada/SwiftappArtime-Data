@@ -22,7 +22,7 @@ navigate('/data')
             }
 
 
-
+var [once, setonce]=useState()
     var [user, setuser]=useState({})
 
     async function finduser() {
@@ -58,13 +58,13 @@ useEffect(()=>{
 
     }
 
+    finduser()
+},[once])
 
-})
 
-finduser()
     return (<section className="dashbaord-section">
-
-        <h2>{user.email}</h2>
+<div className='dash-shadow'>
+        <h2> Welcome {user.firstname}</h2>
         <div className="dash-upper">
             <small>Account balance <i class="fa-solid fa-eye"></i></small>
 
@@ -74,31 +74,40 @@ finduser()
 
             <button><i class="fa-solid fa-money-bill-transfer"></i>  Deposit</button>
             <button> <i class="fa-solid fa-building-columns"></i> Withdraw</button>
+      
+      
         </div>
 
-        <div className="dash-lower">
-
-
-            <div className="airtime-data-card">
+        
+        <div className="airtime-data-card">
                 <div>
                     <Button onclick={()=>{
 buydata()
 
-                    }} text='Buy data'/>
+                    }} text={<><i class="fa-solid fa-circle-nodes"></i> Buy data </> }/>
 
                 </div>
-                <div className="-card">
+                <div className="airtime-data-card">
                 <Button onclick={()=>{
 buyairtime()
 
-                    }} text='Buy airtime'/>
+                    }} text={<><i class="fa-solid fa-compress"></i> Buy airtime</>}/>
 
                 </div>
             </div>
 
+</div>
+        <div className="dash-lower">
+
+
 
             <div className="soon-card">
-                <p>Comming soon</p>
+               <img src='./public/images/atc.png'/>
+               <Button onclick={()=>{
+navigate('/aitools')
+
+               }} text={<><i class="fa-solid fa-bolt"></i> AI tools</>}/>
+
             </div>
 
         </div>

@@ -80,7 +80,7 @@ useEffect(()=>{
 })
 
 return(<div className="buy-data-section">
-<h1>Buy Airtime</h1>
+<h1> <i class="fa-solid fa-compress"></i> Buy Airtime</h1>
 <hr/>
 
 <NetworkDropDown/>

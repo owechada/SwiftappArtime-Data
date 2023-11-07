@@ -12,6 +12,8 @@ import Signup from './Routes/SignupRoute'
 import Login from './Routes/LoginRoute'
 import Buydata from './Routes/Buydata'
 import Buyairtime from './Routes/Butairtime'
+import Aitools from './Routes/Aitools'
+import User_detail from './Routes/User_detail'
 
  
 
@@ -28,6 +30,8 @@ function App() {
   <Route path='/login' element={<Login/>} />
   <Route path='/data' element={<Buydata/>} />
   <Route path='/airtime' element={<Buyairtime/>} />
+  <Route path='/aitools' element={<Aitools/>} />
+  <Route path='/profile' element={<User_detail/>} />
 </Routes>
     
   

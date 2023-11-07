@@ -54,12 +54,12 @@ props.set_price(formattedCurrency)
 props.set_productid(item['PRODUCT_ID'])
 }
   return (
-    <Dropdown>
+    <Dropdown className="item-men">
       <Dropdown.Toggle variant="success" id="dropdown-basic">
 {choosennetwork}
       </Dropdown.Toggle>
 
-      <Dropdown.Menu>
+      <Dropdown.Menu >
 
         {listt.map((item,key)=>{
 
@@ -228,7 +228,7 @@ useEffect(()=>{
 
 })
 return(<div className="buy-data-section">
-<h1>Buy Data</h1>
+<h1> <i class="fa-solid fa-circle-nodes"></i> Buy Data</h1>
 <hr/>
 <NetworkdataplanDropDown id={selectedntid} chosen={(res)=>{setselectedntid(res)}}/>
 

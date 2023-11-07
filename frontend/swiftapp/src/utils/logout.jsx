@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 
 
@@ -12,6 +14,13 @@ navigate('/login')
 }
 
 
-return(<><button onClick={()=>{out()}}>Logout</button></>)
+return(<>
+  <DropdownButton id="dropdown-item-button" title="Dropdown button">
+ 
+ <Dropdown.Item as="button">Action</Dropdown.Item>
+ <Dropdown.Item as="button">Another action</Dropdown.Item>
+ <Dropdown.Item onClick={()=>{out()}} as="button">Logout</Dropdown.Item>
+</DropdownButton>
+</>)
 
 }
