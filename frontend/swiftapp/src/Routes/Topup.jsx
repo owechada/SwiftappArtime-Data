@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from '../Components/Button';
 import { useState } from 'react';
-import { Alert } from 'react-bootstrap/Alert';
+import Alert from 'react-bootstrap/Alert';
 import getCookie from '../utils/getcookie';
 import { useNavigate } from 'react-router-dom';
 
