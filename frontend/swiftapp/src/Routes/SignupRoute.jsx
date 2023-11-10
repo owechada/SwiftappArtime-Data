@@ -158,7 +158,7 @@ seterrormsg([res])
 
     
 async function Registeruser(data,suscalback,errorcalback) {
-    const url = 'http://localhost:4000/signup';
+    const url = 'https://swiftapp.onrender.com/signup';
   
     try {
       const response = await fetch(url, {

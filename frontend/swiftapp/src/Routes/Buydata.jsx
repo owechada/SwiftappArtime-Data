@@ -174,7 +174,7 @@ else{
 var data={
   phone_no:phone_no,userid:123,productid, network:selectedntid
 }
- var res= await fetch('http://localhost:4000/buydata',  {method: 'POST',
+ var res= await fetch('https://swiftapp.onrender.com/buydata',  {method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
