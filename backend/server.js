@@ -12,15 +12,15 @@ import Buydataroute from './Routes/BuydataRoute.js'
 import UserRoute from './Routes/FinduserRoute.js'
 
 var app= express()
-
+ 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING).then(async (res)=>{
 
   console.log("Connected to the database")
-
-
-
+ 
+  
+  
 }).catch(console.error)
-
+  
 
 app.use(cors())
 app.use(express.json());

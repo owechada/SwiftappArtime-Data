@@ -27,7 +27,9 @@ export default function (){
         }
     },[once])
 
-    return(<>
-     <>Profile view user</>
-    </>)
+    return(<section className="dashbaord-section">
+
+<i class="fa-solid fa-address-card"></i>
+     <div className="user-details">Profile view user</div>
+    </section>)
 }

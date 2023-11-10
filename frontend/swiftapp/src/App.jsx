@@ -14,24 +14,32 @@ import Buydata from './Routes/Buydata'
 import Buyairtime from './Routes/Butairtime'
 import Aitools from './Routes/Aitools'
 import User_detail from './Routes/User_detail'
+import Loader from './utils/loader'
+import Topup from './Routes/Topup'
 
  
 
 function App() {
  
+
+  var [isloading,setisloading]=useState()
   return (
     <div className='main'>
          <Header_/>
+     { isloading && <Loader/>}
      <div className='body'>
 <Routes>
 <Route path='/' element={<HomePage/>}/>
-  <Route path='/dashboard' element={<Dashbaoard/>}/>
-  <Route path='/signup' element={<Signup/>} />
-  <Route path='/login' element={<Login/>} />
-  <Route path='/data' element={<Buydata/>} />
-  <Route path='/airtime' element={<Buyairtime/>} />
-  <Route path='/aitools' element={<Aitools/>} />
-  <Route path='/profile' element={<User_detail/>} />
+  <Route path='/dashboard' element={<Dashbaoard setld={setisloading}/>}/>
+  <Route path='/signup' element={<Signup setld={setisloading} />} />
+  <Route path='/login' element={<Login setld={setisloading} />} />
+  <Route path='/data' element={<Buydata setld={setisloading} />} />
+  <Route path='/airtime' element={<Buyairtime setld={setisloading} />} />
+  <Route path='/aitools' element={<Aitools setld={setisloading} />} />
+
+  <Route path='/deposit' element={<Topup setld={setisloading} />} />
+
+  <Route path='/profile' element={<User_detail setld={setisloading} />} />
 </Routes>
     
   

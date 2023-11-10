@@ -5,4 +5,4 @@ var router =express.Router()
 
 router.post('/',loginController)
 
-export default router
+export default router 

@@ -27,22 +27,26 @@ res.send(data)
 
 ///  make request to clubkonnet url, then proceed to get response
 
-
+  
 /// send response to interface
 var mobilenet=await getproducts()
 
-for (let key in mobilenet){
+for (var keyy in mobilenet){
 
-if(mobilenet[key][0]['ID']== data.network){
+if(mobilenet[keyy][0]['ID']== data.network){
 
-   var products = mobilenet[key][0]['PRODUCT'][0]
+   var products = mobilenet[keyy][0]['PRODUCT'][0]
 
    for (let key in products){
 if (key=='PRODUCT_ID' ){
-    console.log(products[key])
-    console.log(data.productid)
-}
+    console.log('network name',keyy,'network id', mobilenet[keyy][0]['ID'], 'VS ',data.network )
+    console.log(data.productid,'ID')
 
+
+    senddatareq()
+
+}
+ 
 
 
 else{ 
@@ -61,6 +65,14 @@ else{
 
 
 
+}
+
+
+async function senddatareq(){
+
+  var url=`https://www.nellobytesystems.com/APIDatabundleV1.asp?UserID=${your_userid}&APIKey=${your_apikey}&MobileNetwork=${mobilenetwork_code}&DataPlan=${dataplan_size}&MobileNumber=${recipient_mobilenumber}&RequestID=request_id&CallBackURL=callback_url`
+  var res = await fetch(url)
+  console.log(res)
 }
 
 export default Buydatacontroller

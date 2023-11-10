@@ -60,7 +60,11 @@ useEffect(()=>{
 
     finduser()
 },[once])
-
+const userbal = new Intl.NumberFormat('en-US', {
+    style: 'decimal',
+    
+  }).format(parseInt(user.balance));
+  
 
     return (<section className="dashbaord-section">
 <div className='dash-shadow'>
@@ -68,11 +72,13 @@ useEffect(()=>{
         <div className="dash-upper">
             <small>Account balance <i class="fa-solid fa-eye"></i></small>
 
-            <p className="account-amount"><i class="fa-solid fa-naira-sign"></i>5,000</p>
+            <p className="account-amount"><i class="fa-solid fa-naira-sign"></i>{userbal}</p>
         </div>
         <div className="dash-action-buttons">
 
-            <button><i class="fa-solid fa-money-bill-transfer"></i>  Deposit</button>
+            <button onClick ={()=>{
+                navigate('/deposit')
+            }}><i class="fa-solid fa-money-bill-transfer"></i>  Deposit</button>
             <button> <i class="fa-solid fa-building-columns"></i> Withdraw</button>
       
       

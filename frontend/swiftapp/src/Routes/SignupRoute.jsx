@@ -13,7 +13,7 @@ function Signupbtn(props) {
 
 
 
-function Signup() {
+function Signup(props) {
 
 
 
@@ -69,10 +69,12 @@ if(!(password==confirmpassword)){
 
 else{
 
+
+    props.setld(true)
    var mesg= Registeruser(data,setSucces,setalertvisi) 
     
     mesg.then((res)=>{
-
+        props.setld(false)
 seterrormsg([res])
     })
    

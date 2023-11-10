@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Button from "../Components/Button";
 import  Alert from "react-bootstrap/Alert";
 import { useNavigate } from "react-router-dom";
+import finduser from "../utils/getUser";
 
 
 
@@ -130,7 +131,7 @@ setchid()
     }
       
 
-export default function BuyData(){
+export default function BuyData(props){
 
   
 var navigate =useNavigate()
@@ -139,7 +140,8 @@ var navigate =useNavigate()
  var [price, setprice]=useState('0.00')
  var [productid, setproid]=useState()
  var [phone_no, setphone]=useState()
-
+ var [once,setonce]=useState()
+var [user, setuser]=useState({user:{balance:"0"}})
  var [error,seterror] =useState([])
 
 async  function  validatedetails(){
@@ -163,6 +165,12 @@ seterror(['Invalid phone number'])
 }
 
 else{
+
+  try{
+ 
+  props.setld(true)
+
+
 var data={
   phone_no:phone_no,userid:123,productid, network:selectedntid
 }
@@ -172,9 +180,19 @@ var data={
     },
     body: JSON.stringify(data),
 }) 
+
+
 var res2= await res.json()
 
 console.log(res2)
+props.setld(false)
+}
+
+catch(e){
+  props.setld(false)
+console.log(e)
+
+}
 }
  
 }
@@ -225,16 +243,33 @@ useEffect(()=>{
 
   }
 
+  finduser(getCookie('uid')).then((res)=>{
 
-})
+
+    setuser(res)
+   })
+},[once]   )
+
+
+
+
+
+
+ const userbal = new Intl.NumberFormat('en-US', {
+  style: 'decimal',
+  
+}).format(parseInt(!(user.balance ==undefined) ? user.balance:'0'));
+
+
+
 return(<div className="buy-data-section">
 <h1> <i class="fa-solid fa-circle-nodes"></i> Buy Data</h1>
 <hr/>
 <NetworkdataplanDropDown id={selectedntid} chosen={(res)=>{setselectedntid(res)}}/>
 
-<p>Wallet ballance:  N55</p>
+<p>Wallet balance:<b> ₦{userbal}</b></p>
 <NetworkDropDown set_productid={setproid} set_price={setprice} id={selectedntid} netobj={all_data_products}/>
-<p>Price: ₦ {price}</p>
+<p>Price: <b> ₦ {price} </b></p>
 <label>Recipient's Phone</label>
 <input onChange={(e)=>{setphone(e.target.value)}} name='amount' type="number" placeholder="070..."/>
 {!(error.length ==0) ? <Alert className='alert-error data-error' variant='danger'><i class="fa-solid fa-circle-exclamation"></i>  {error}</Alert> :''}

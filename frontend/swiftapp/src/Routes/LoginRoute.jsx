@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import { Link, useNavigate } from 'react-router-dom'
 import getCookie from "../utils/getcookie";
 
+
 function Loginbtn(props) {
     return (<div className="logbtn">
         <button onClick={props.onclick} className='login-btn'>Login</button>
@@ -12,7 +13,7 @@ function Loginbtn(props) {
 }
 
 
-function Login() {
+function Login(props) {
 
 
     var navigate = useNavigate()
@@ -31,13 +32,12 @@ useEffect(()=>{
     console.log(ca)
 
     if (ca == '') {
-
+ 
 
     }
 
     else {
         navigate('/dashboard')
-
 
     }
 
@@ -71,14 +71,14 @@ useEffect(()=>{
             seterrormsg([])
             setalertvisi(false)
 
-
+            props.setld(true)
             //login user auth
 
 
             var login = Loginuser(data, setSucces, setalertvisi)
 
             login.then((res) => {
-
+                props.setld(false)
                 seterrormsg([res.msg])
                 console.log(res.user)
          setSucces((lat)=>{
