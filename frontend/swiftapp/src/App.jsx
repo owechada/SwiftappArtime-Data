@@ -42,12 +42,12 @@ function App() {
   <Route path='/profile' element={<User_detail setld={setisloading} />} />
 </Routes>
     
-  
+
 
 
      </div>
     </div>
   )
 }
-
+//fshhfshff
 export default App
