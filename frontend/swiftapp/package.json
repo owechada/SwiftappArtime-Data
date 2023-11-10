@@ -27,6 +27,4 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
   }
-,
-  "homepage": "https://654e3f5996c0d7113fff432e--dancing-seahorse-0c7a22.netlify.app/dist/"
-}
+ }

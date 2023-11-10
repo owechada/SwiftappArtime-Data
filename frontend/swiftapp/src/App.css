@@ -52,7 +52,7 @@ html {
   display: flex;
   overflow: hidden;
   flex-direction: column;
- background-image: url('./public/images/app-bg-home.png') ;
+ background-image: url('/images/app-bg-home.png') ;
  background-size: contain;
  height: auto !important;
  min-height: 100vh;
@@ -396,7 +396,7 @@ padding:20px !important;
 }
 
 .mtn{
-  background-image: url('./public/images/mtn-logo.png');
+  background-image: url('/images/mtn-logo.png');
 background-size:  cover;
 background-repeat: no-repeat;
  
@@ -405,7 +405,7 @@ background-repeat: no-repeat;
  
 .airtel{
 
-    background-image: url('./public/images/airtel-logo.png');
+    background-image: url('/images/airtel-logo.png');
   background-size:  contain;
   background-repeat: no-repeat;
   
@@ -413,7 +413,7 @@ background-repeat: no-repeat;
 }
 
 .glo{
-  background-image: url('./public/images/glo-logo.jpeg');
+  background-image: url('/images/glo-logo.jpeg');
 background-size:  contain;
 background-repeat: no-repeat;
 
@@ -421,7 +421,7 @@ background-repeat: no-repeat;
 }
 
 .m9mobile{
-  background-image: url('./public/images/9mobile-logo.jpg');
+  background-image: url('/images/9mobile-logo.jpg');
 background-size:  contain;
 background-repeat: no-repeat;
 
