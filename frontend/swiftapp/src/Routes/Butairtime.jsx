@@ -92,6 +92,9 @@ return(<div className="buy-data-section">
 <label>Recipient's Phone</label>
 
 <input onChange={(e)=>{ setphonenumber(e.target.value)}} name='phone_number' type="number" placeholder="070..."/>
+{!(error.length ==0) ? <Alert className='alert-error data-error' variant='danger'><i class="fa-solid fa-circle-exclamation"></i>  {error}</Alert> :''}
+
+
 <Button text="Proceed" />
 </div>)
 }

@@ -550,3 +550,9 @@ transform: translate(-50%, -50%);
   text-align: center;
 }
 
+.transactions-container{
+
+width: 100%;
+margin: 15px;
+background-color: #747474;
+}

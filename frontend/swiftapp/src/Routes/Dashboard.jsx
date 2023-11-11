@@ -3,6 +3,7 @@ import { useState } from "react"
 import Button from "../Components/Button"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import Transactions from "../Components/Transactions"
 
 export default function Dashbaoard() {
 
@@ -23,6 +24,7 @@ navigate('/data')
 
 
 var [once, setonce]=useState()
+
     var [user, setuser]=useState({})
 
     async function finduser() {
@@ -103,12 +105,15 @@ buyairtime()
             </div>
 
 </div>
+
+{user.transacttions &&(<Transactions obj={ user.transacttions} />)}
+
         <div className="dash-lower">
 
 
 
             <div className="soon-card">
-               <img src='./public/images/atc.png'/>
+               <img src='/images/atc.png'/>
                <Button onclick={()=>{
 navigate('/aitools')
 
