@@ -3,7 +3,7 @@
 import { useState,useEffect } from "react"
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function Signupbtn(props) {
     return (<div className="logbtn">
@@ -15,7 +15,7 @@ function Signupbtn(props) {
 
 function Signup(props) {
 
-
+var navigate=useNavigate()
 
     var [data, setdata] = useState({ firstname: '', lastname: '',phone:'', email: '', password: '', confirmpassword: '' })
 
@@ -71,11 +71,13 @@ else{
 
 
     props.setld(true)
-   var mesg= Registeruser(data,setSucces,setalertvisi) 
+   var mesg= Registeruser(data,setSucces,setalertvisi,navigate) 
     
     mesg.then((res)=>{
         props.setld(false)
 seterrormsg([res])
+
+
     })
    
 }
@@ -157,7 +159,7 @@ seterrormsg([res])
 
 
     
-async function Registeruser(data,suscalback,errorcalback) {
+async function Registeruser(data,suscalback,errorcalback,navigate) {
     const url = 'https://swiftapp.onrender.com/signup';
   
     try {
@@ -179,6 +181,14 @@ async function Registeruser(data,suscalback,errorcalback) {
        
       suscalback(responseData.iserror)
       errorcalback(responseData.iserror)
+
+      if (!responseData.iserror){
+
+setTimeout(()=>{
+    navigate('/login')
+
+},1000)
+      }
       return responseData.response
 
       console.log('Response Data:', responseData);

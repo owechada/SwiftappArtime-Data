@@ -55,6 +55,8 @@ console.log(isloged)
         <Dropdown.Toggle variant="success" id="dropdown-basic">
         <i class="fa-solid fa-circle-user"></i>
         </Dropdown.Toggle>
+
+        <img className='logo-header'  src='/vite.png'/>
   
         <Dropdown.Menu>
           {isloged?<Dropdown.Item onClick={()=>{navigate('/profile')      }} >Profile</Dropdown.Item>:<Dropdown.Item onClick={()=>{navigate('/signup')      }} >Signup</Dropdown.Item>}

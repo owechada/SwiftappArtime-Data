@@ -326,6 +326,7 @@ background-color: #fff;
 display: flex;
 font-size: 1.5rem;
 flex-direction: column;
+width: 90vw !important;
 margin-top: 50px;
   height:auto !important;
   padding: 30px;
@@ -551,8 +552,43 @@ transform: translate(-50%, -50%);
 }
 
 .transactions-container{
+display: flex;
+margin-top: 15px;
+justify-content: center;
+width: 100% !important;
+ padding: 10px;
+ flex-direction: column;
+background-color: #dedede;
+}
+.ait{
 
-width: 100%;
-margin: 15px;
-background-color: #747474;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ait-actions{
+ display: flex;
+ flex-direction: column;
+ padding: 50px 10px;
+}
+
+#myIframe{
+width: 100vw;
+height: 100vh;
+position: fixed;
+left: 0;
+
+ 
+}
+
+.logo-header{
+
+height: 60px;
+margin-left: 10px;
+justify-self: center;
+align-self: center;
+width: 60px;
+object-fit: cover;
+
 }

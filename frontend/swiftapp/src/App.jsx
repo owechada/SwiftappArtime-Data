@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import HomePage from './Routes/HomePage'
 import Container from 'react-bootstrap/Container'
@@ -16,6 +14,8 @@ import Aitools from './Routes/Aitools'
 import User_detail from './Routes/User_detail'
 import Loader from './utils/loader'
 import Topup from './Routes/Topup'
+import Tti from './Routes/TtI'
+import Aic from './Routes/Aic'
 
  
 
@@ -29,7 +29,10 @@ function App() {
      { isloading && <Loader/>}
      <div className='body'>
 <Routes>
-<Route path='/' element={<HomePage/>}/>
+<Route  path='/' element={
+<Login setld={setisloading} />
+// <HomePage/> 
+}/>
   <Route path='/dashboard' element={<Dashbaoard setld={setisloading}/>}/>
   <Route path='/signup' element={<Signup setld={setisloading} />} />
   <Route path='/login' element={<Login setld={setisloading} />} />
@@ -38,8 +41,9 @@ function App() {
   <Route path='/aitools' element={<Aitools setld={setisloading} />} />
 
   <Route path='/deposit' element={<Topup setld={setisloading} />} />
-
-  <Route path='/profile' element={<User_detail setld={setisloading} />} />
+  <Route path='/tti' element={<Tti setld={setisloading} />} />
+  <Route path='/Aic' element={<Aic setld={setisloading} />} />
+  <Route path='/profile' element={<Dashbaoard setld={setisloading}/>} />
 </Routes>
     
 

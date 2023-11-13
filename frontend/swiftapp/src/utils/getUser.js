@@ -1,6 +1,6 @@
 async function finduser(emailu) {
 
-    var res = await fetch('http://localhost:4000/user', { method: 'POST', 
+    var res = await fetch('https://swiftapp.onrender.com/user', { method: 'POST', 
     headers: { 'Content-Type': 'application/json' } 
 ,body:JSON.stringify({email:emailu})
 })
